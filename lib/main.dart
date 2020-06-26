@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,112 +15,143 @@ void main() {
   });
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final play = AudioCache();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      //appBar: AppBar(title: Text('Home')),
+        //appBar: AppBar(title: Text('Home')),
         body: Container(
-
-             margin: EdgeInsets.only(top:5,bottom:10 ),
+            margin: EdgeInsets.only(top: 5, bottom: 10),
             decoration: new BoxDecoration(
               image: new DecorationImage(
-                image: new AssetImage("Assets/images/number_counting_bg.png"),
+                image: new AssetImage("assets/images/number_counting_bg.png"),
                 fit: BoxFit.fill,
               ),
             ),
             child: Column(children: <Widget>[
               Container(
                 height: 60,
-                margin: EdgeInsets.only(top:30,bottom:30),
-                child: Image.asset('Assets/images/number_counting_title.png'),
+                margin: EdgeInsets.only(top: 30, bottom: 30),
+                child: Image.asset('assets/images/number_counting_title.png'),
               ),
+              Container(
+                  margin: EdgeInsets.only(left: 50),
+                  child: Row(children: <Widget>[
+                    FlatButton(
+                      //margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
+                      child: Image.asset('assets/images/number_1.png',
+                          height: 80, width: 80),
+                      onPressed: () {
+                        play.play('one.mp3');
 
-              Row(
+                      },
+                    ),
+                 //   SizedBox(height: 3, width: 3),
+                    FlatButton(
+                      //margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
+                      child: Image.asset('assets/images/number_2.png',
+                          height: 80, width: 80),
+                      onPressed: () {
+                        play.play('two.mp3');
+                      },
+                    ),
+                  //  SizedBox(height: 3, width: 3),
+                    FlatButton(
+                      child: Image.asset('assets/images/number_3.png',
+                          height: 80, width: 80),
+                      onPressed: () {
+                        play.play('three.mp3');
+                      },
+                    ),
+                  //  SizedBox(height:3, width: 3),
+                    FlatButton(
+                      child: Image.asset('assets/images/number_4.png',
+                          height: 80, width: 80),
+                      onPressed: () {
+                        play.play('four.mp3');
+                      },
+                    ),
+                  //  SizedBox(height:3, width:3),
+                    FlatButton(
+                      //margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
+                      child: Image.asset(
+                        'assets/images/number_5.png',
+                        height: 80,
+                        width: 80,
+                      ),
+                      onPressed: (){
+                        play.play('five.mp3');
+                      },
+                    ),
+                  ])),
+              SizedBox(height: 10, width: 10),
+              Container(
+                margin: EdgeInsets.only(left: 50),
+                child: Row(
+                  children: <Widget>[
 
-                children: <Widget>[
-                  Container(
-                    height: 80,
-                    width: 80,
+                      FlatButton(
+                        //margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
+                        child: Image.asset('assets/images/number_6.png',
+                            height: 80, width: 80),
+                        onPressed: () {
+                          play.play('six.mp3');
+                        },
+                      ),
 
-                    margin: EdgeInsets.fromLTRB(90, 0, 0,30),
-                    child: Image.asset('Assets/images/number_1.png'),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 80,
-                    margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
-                    child: Image.asset('Assets/images/number_2.png'),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 80,
-                    margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
-                    child: Image.asset('Assets/images/number_3.png'),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 80,
-                    margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
-                    child: Image.asset('Assets/images/number_4.png'),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 80,
-                    margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
-                    child: Image.asset('Assets/images/number_5.png'),
-                  ),
+               //     SizedBox(height: 5, width:5),
+                    FlatButton(
+                      //margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
+                      child: Image.asset('assets/images/number_7.png',
+                          height: 80, width: 80),
+                      onPressed: () {
+                        play.play('seven.mp3');
+                      },
+                    ),
+                //    SizedBox(height:5, width:5),
+                    FlatButton(
+                      //margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
+                      child: Image.asset('assets/images/number_8.png',
+                          height: 80, width: 80),
+                      onPressed: () {
+                        play.play('eight.mp3');
+                      },
+                    ),
+               //     SizedBox(height:5, width:5),
+                    FlatButton(
+                      //margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
+                      child: Image.asset('assets/images/number_9.png',
+                          height: 80, width: 80),
+                      onPressed: () {
+                        play.play('nine.mp3');
+                      },
+                    ),
+                //    SizedBox(height:5, width:5),
+                    FlatButton(
+                      //margin: EdgeInsets.fromLTRB(20, 0, 0, 30),
+                      child: Image.asset('assets/images/number_10.png',
+                          height: 80, width: 80),
+                      onPressed: () {
+                        play.play('ten.mp3');
 
-                ],
+                      },
+                    ),
+                  ],
+                ),
               ),
-
-              Row(
-                children: <Widget>[
-                  Container(
-                    height: 80,
-                    width: 80,
-                    margin: EdgeInsets.only(left: 90.0),
-                    child: Image.asset('Assets/images/number_6.png'),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 80,
-                    margin: EdgeInsets.only(left: 20.0),
-                    child: Image.asset('Assets/images/number_7.png'),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 80,
-                    margin: EdgeInsets.only(left: 20.0),
-                    child: Image.asset('Assets/images/number_8.png'),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 80,
-                    margin: EdgeInsets.only(left: 20.0),
-                    child: Image.asset('Assets/images/number_9.png'),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 80,
-                    margin: EdgeInsets.only(left: 20.0),
-                    child: Image.asset('Assets/images/number_10.png'),
-                  ),
-
-
-                ],
-              ),
-
               Container(
                 height: 50,
-                margin:EdgeInsets.only(top:30.0) ,
+                margin: EdgeInsets.only(top: 30.0),
                 child: Image.asset(
-                    'Assets/images/number_counting_clickToPlay.png'),
+                    'assets/images/number_counting_clickToPlay.png'),
               ),
-
-
             ])));
   }
 }
-
